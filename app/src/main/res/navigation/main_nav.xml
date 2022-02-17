@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    android:label="@string/order_with_u"
+    app:startDestination="@id/mainEstablishmentsFragment">
+    <fragment
+        android:id="@+id/mainEstablishmentsFragment"
+        android:name="com.sapar.orderapplication.present.view.MainEstablishmentsFragment"
+        android:label="@string/order_with_u">
+        <action
+            android:id="@+id/action_mainEstablishmentsFragment_to_establishmentDetailFragment"
+            app:destination="@id/establishmentDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/establishmentDetailFragment"
+        android:name="com.sapar.orderapplication.present.view.EstablishmentDetailFragment"
+        android:label="{establishmentName}">
+        <argument
+            android:name="establishmentName"
+            app:argType="string" />
+        <argument
+            android:name="establishmentItem"
+            app:argType="com.sapar.orderapplication.data.establishment.EstablishmentsItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/myOrdersFragment"
+        android:name="com.sapar.orderapplication.present.view.MyOrdersFragment"
+        android:label="@string/my_order_u">
+        <action
+            android:id="@+id/action_myOrdersFragment_to_myOrdersDetailFragment"
+            app:destination="@id/myOrdersDetailFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:popExitAnim="@anim/slide_out_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/myOrdersDetailFragment"
+        android:name="com.sapar.orderapplication.present.view.MyOrdersDetailFragment"
+        android:label="@string/order_detail">
+        <argument
+            android:name="myOrderItem"
+            app:argType="com.sapar.orderapplication.data.my_orders.MyOrdersItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/raqmetFragment"
+        android:name="com.sapar.orderapplication.present.view.RaqmetFragment"
+        android:label="RaqmetFragment" />
+</navigation>
