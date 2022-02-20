@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
@@ -36,7 +37,11 @@ class EstablishmentDetailFragment : Fragment(R.layout.fragment_establishment_det
         viewModel = ViewModelProvider(this)[EstablishmentDetailViewModel::class.java]
         binding.initUI()
         setObserver()
+        init()
+    }
 
+    private fun init() {
+        binding.btnBasket.setOnClickListener { onClickBtnBasket() }
     }
 
     private fun setObserver() {
@@ -103,11 +108,6 @@ class EstablishmentDetailFragment : Fragment(R.layout.fragment_establishment_det
         layoutManager?.startSmoothScroll(smoothScroller)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     override fun onChangeCount(meal: Meal) {
         Toast.makeText(requireContext(), "${meal.price * meal.counter}", Toast.LENGTH_SHORT).show()
         viewModel.totalPrice += meal.price * meal.counter
@@ -115,5 +115,16 @@ class EstablishmentDetailFragment : Fragment(R.layout.fragment_establishment_det
             isVisible = viewModel.totalPrice > 0
             text = viewModel.totalPrice.toString()
         }
+    }
+
+    private fun onClickBtnBasket() {
+        val action =
+            EstablishmentDetailFragmentDirections.actionEstablishmentDetailFragmentToBasketFragment()
+        findNavController().navigate(action)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

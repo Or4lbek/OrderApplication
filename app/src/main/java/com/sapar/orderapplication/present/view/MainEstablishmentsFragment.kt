@@ -9,8 +9,10 @@ import androidx.navigation.fragment.findNavController
 import com.sapar.orderapplication.R
 import com.sapar.orderapplication.data.establishment.EstablishmentsItem
 import com.sapar.orderapplication.databinding.FragmentMainEstablishmentsBinding
+import com.sapar.orderapplication.present.MainActivity
 import com.sapar.orderapplication.present.adapters.EstablishmentsAdapter
 import com.sapar.orderapplication.present.viewmodel.MainEstablishmentsViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainEstablishmentsFragment : Fragment(R.layout.fragment_main_establishments) {
@@ -25,6 +27,7 @@ class MainEstablishmentsFragment : Fragment(R.layout.fragment_main_establishment
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[MainEstablishmentsViewModel::class.java]
         _binding = FragmentMainEstablishmentsBinding.bind(view)
+        (activity as MainActivity).btnNavView.visibility = View.VISIBLE
 
         initRecyclerView()
         initProgressBar()

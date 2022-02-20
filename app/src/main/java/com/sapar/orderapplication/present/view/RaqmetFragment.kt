@@ -10,7 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.sapar.orderapplication.R
 import com.sapar.orderapplication.common.const.RAQMET_URL
 import com.sapar.orderapplication.databinding.FragmentRaqmetBinding
+import com.sapar.orderapplication.present.MainActivity
 import com.sapar.orderapplication.present.viewmodel.RaqmetViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class RaqmetFragment : Fragment(R.layout.fragment_raqmet) {
@@ -23,6 +25,7 @@ class RaqmetFragment : Fragment(R.layout.fragment_raqmet) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[RaqmetViewModel::class.java]
         _binding = FragmentRaqmetBinding.bind(view)
+        (activity as MainActivity).btnNavView.visibility = View.VISIBLE
         loadWebView()
     }
 

@@ -9,8 +9,10 @@ import androidx.navigation.fragment.findNavController
 import com.sapar.orderapplication.R
 import com.sapar.orderapplication.data.my_orders.MyOrdersItem
 import com.sapar.orderapplication.databinding.FragmentMyOrdersBinding
+import com.sapar.orderapplication.present.MainActivity
 import com.sapar.orderapplication.present.adapters.MyOrdersAdapter
 import com.sapar.orderapplication.present.viewmodel.MyOrdersViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MyOrdersFragment : Fragment(R.layout.fragment_my_orders) {
@@ -25,10 +27,11 @@ class MyOrdersFragment : Fragment(R.layout.fragment_my_orders) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentMyOrdersBinding.bind(view)
         viewModel = ViewModelProvider(this)[MyOrdersViewModel::class.java]
+        (activity as MainActivity).btnNavView.visibility = View.VISIBLE
 
-        initRecyclerView()
-        initProgressBar()
-        initViewModel()
+//        initRecyclerView()
+//        initViewModel()
+        binding.btnSignIn.setOnClickListener { onSignInClick() }
     }
 
     private fun initRecyclerView() {
@@ -39,11 +42,6 @@ class MyOrdersFragment : Fragment(R.layout.fragment_my_orders) {
         if (myOrdersAdapter.items.isEmpty()) {
             binding.progressBarMyOrders.visibility = View.VISIBLE
         }
-    }
-
-    private fun initProgressBar() {
-//        val doubleBounce: Sprite = Pulse()
-//        binding.progressBarMyOrders.setIndeterminateDrawable(doubleBounce)
     }
 
     private fun initViewModel() {
@@ -65,6 +63,11 @@ class MyOrdersFragment : Fragment(R.layout.fragment_my_orders) {
         val action = MyOrdersFragmentDirections.actionMyOrdersFragmentToMyOrdersDetailFragment(
             it
         )
+        findNavController().navigate(action)
+    }
+
+    private fun onSignInClick() {
+        val action = MyOrdersFragmentDirections.actionMyOrdersFragmentToRegistrationEmailFragment()
         findNavController().navigate(action)
     }
 

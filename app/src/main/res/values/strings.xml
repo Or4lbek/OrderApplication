@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FroyoApplication</string>
+    <string name="app_name">ChocoOrder</string>
     <string name="order_with_u">Заказ с собой</string>
     <string name="main">Главная</string>
     <string name="my_order">Мои заказы</string>
@@ -11,6 +11,22 @@
     <string name="order_number">Номер заказа</string>
     <string name="minus">-</string>
     <string name="plus">+</string>
-    <string name="basket">Корзина</string>
     <string name="order_detail">Детали заказа</string>
+    <string name="raqmet">Рахмет</string>
+    <string name="sign_in">Войдите в свой аккаунт</string>
+    <string name="need_sign_in">Необходимо войти в свой аккаунт, чтобы увидеть историю заказов</string>
+    <string name="sign_in_btn">Войти</string>
+    <string name="email">e-mail</string>
+    <string name="enter_email_address">Введите ваш почтовый адрес</string>
+    <string name="registration">Регистрация</string>
+    <string name="enter_your_address">Введите почтовый адрес</string>
+    <string name="click_continue">Нажимая “Далее”, вы принимаете условия публичной оферты</string>
+    <string name="cont">Далее</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="pass_req">Пароль должен состоять минимум из 9 символов</string>
+    <string name="password">Пароль</string>
+    <string name="registrate">Зарегистрировать</string>
+    <string name="basket">Корзина</string>
+    <string name="basket_res">Итоги</string>
+    <string name="to_pay">Оплатить</string>
 </resources>

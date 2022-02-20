@@ -23,6 +23,9 @@
         <argument
             android:name="establishmentItem"
             app:argType="com.sapar.orderapplication.data.establishment.EstablishmentsItem" />
+        <action
+            android:id="@+id/action_establishmentDetailFragment_to_basketFragment"
+            app:destination="@id/basketFragment" />
     </fragment>
     <fragment
         android:id="@+id/myOrdersFragment"
@@ -33,6 +36,11 @@
             app:destination="@id/myOrdersDetailFragment"
             app:enterAnim="@anim/slide_in_from_right"
             app:popExitAnim="@anim/slide_out_to_right" />
+        <action
+            android:id="@+id/action_myOrdersFragment_to_registrationEmailFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:popExitAnim="@anim/slide_out_to_right"
+            app:destination="@id/registrationEmailFragment" />
     </fragment>
     <fragment
         android:id="@+id/myOrdersDetailFragment"
@@ -45,5 +53,33 @@
     <fragment
         android:id="@+id/raqmetFragment"
         android:name="com.sapar.orderapplication.present.view.RaqmetFragment"
-        android:label="RaqmetFragment" />
+        android:label="@string/raqmet" />
+    <fragment
+        android:id="@+id/registrationEmailFragment"
+        android:name="com.sapar.orderapplication.present.view.RegistrationEmailFragment"
+        android:label=""
+        tools:layout="@layout/fragment_registration_email">
+        <action
+            android:id="@+id/action_registrationEmailFragment_to_registrationPasswordFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:popExitAnim="@anim/slide_out_to_right"
+            app:destination="@id/registrationPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationPasswordFragment"
+        android:name="com.sapar.orderapplication.present.view.RegistrationPasswordFragment"
+        android:label=""
+        tools:layout="@layout/fragment_registration_password" >
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_registrationPasswordFragment_to_myOrdersFragment"
+            app:destination="@id/myOrdersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="com.sapar.orderapplication.present.view.BasketFragment"
+        android:label="@string/basket"
+        tools:layout="@layout/fragment_basket" />
 </navigation>
