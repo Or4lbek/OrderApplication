@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import com.sapar.orderapplication.R
+import com.sapar.orderapplication.common.const.BOTTOM_SHEET_FRAGMENT
 import com.sapar.orderapplication.data.menu.Category
 import com.sapar.orderapplication.data.menu.Meal
 import com.sapar.orderapplication.databinding.FragmentEstablishmentDetailBinding
@@ -41,6 +42,7 @@ class EstablishmentDetailFragment : Fragment(R.layout.fragment_establishment_det
     }
 
     private fun init() {
+        binding.burgerBtn.setOnClickListener { onClickBtnBurger() }
         binding.btnBasket.setOnClickListener { onClickBtnBasket() }
     }
 
@@ -123,8 +125,21 @@ class EstablishmentDetailFragment : Fragment(R.layout.fragment_establishment_det
         findNavController().navigate(action)
     }
 
+    private fun onClickBtnBurger() {
+        val bottomSheetMenuFragment = BottomSheetMenuFragment(fromCategoryToList())
+        bottomSheetMenuFragment.show(parentFragmentManager, BOTTOM_SHEET_FRAGMENT)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun fromCategoryToList(): ArrayList<String> {
+        val itemsMenu: ArrayList<String> = ArrayList()
+        categoryAdapter.items.map { categoryMeal ->
+            itemsMenu.add(categoryMeal.name)
+        }
+        return itemsMenu
     }
 }

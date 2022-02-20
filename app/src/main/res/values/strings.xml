@@ -29,4 +29,5 @@
     <string name="basket">Корзина</string>
     <string name="basket_res">Итоги</string>
     <string name="to_pay">Оплатить</string>
+    <string name="burger_button">burger button</string>
 </resources>
