@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_main"/>
 
     <item
-        android:id="@+id/myOrdersFragment"
+        android:id="@+id/OrderListFragment"
         android:title="@string/my_order"
         android:icon="@drawable/ic_clipboard"
        />
