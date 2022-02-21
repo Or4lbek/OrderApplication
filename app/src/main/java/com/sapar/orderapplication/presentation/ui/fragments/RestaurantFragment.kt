@@ -11,10 +11,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
-import com.sapar.orderapplication.databinding.FragmentRestaurantDetailsBinding
-import com.sapar.orderapplication.presentation.adapters.CategoryAdapter
-import com.sapar.orderapplication.presentation.adapters.ParentMenuAdapter
-import com.sapar.orderapplication.presentation.viewmodel.EstablishmentDetailViewModel
 
 
 class RestaurantFragment : Fragment() {
@@ -44,6 +40,7 @@ class RestaurantFragment : Fragment() {
     }
 
     private fun init() {
+        binding.burgerBtn.setOnClickListener { onClickBtnBurger() }
         binding.btnBasket.setOnClickListener { onClickBtnBasket() }
     }
 
@@ -106,14 +103,14 @@ class RestaurantFragment : Fragment() {
         layoutManager?.startSmoothScroll(smoothScroller)
     }
 
-//    override fun onChangeCount(meal: Meal) {
-//        Toast.makeText(requireContext(), "${meal.price * meal.counter}", Toast.LENGTH_SHORT).show()
-//        viewModel.totalPrice += meal.price * meal.counter
-//        binding.btnBasket.apply {
-//            isVisible = viewModel.totalPrice > 0
-//            text = viewModel.totalPrice.toString()
-//        }
-//    }
+    override fun onChangeCount(meal: Meal) {
+        Toast.makeText(requireContext(), "${meal.price * meal.counter}", Toast.LENGTH_SHORT).show()
+        viewModel.totalPrice += meal.price * meal.counter
+        binding.btnBasket.apply {
+            isVisible = viewModel.totalPrice > 0
+            text = viewModel.totalPrice.toString()
+        }
+    }
 
     private fun onClickBtnBasket() {
         val action =
@@ -121,8 +118,21 @@ class RestaurantFragment : Fragment() {
         findNavController().navigate(action)
     }
 
+    private fun onClickBtnBurger() {
+        val bottomSheetMenuFragment = BottomSheetMenuFragment(fromCategoryToList())
+        bottomSheetMenuFragment.show(parentFragmentManager, BOTTOM_SHEET_FRAGMENT)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun fromCategoryToList(): ArrayList<String> {
+        val itemsMenu: ArrayList<String> = ArrayList()
+        categoryAdapter.items.map { categoryMeal ->
+            itemsMenu.add(categoryMeal.name)
+        }
+        return itemsMenu
     }
 }
