@@ -4,82 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
     android:label="@string/order_with_u"
-    app:startDestination="@id/mainEstablishmentsFragment">
+    app:startDestination="@id/home_fragment">
     <fragment
-        android:id="@+id/mainEstablishmentsFragment"
-        android:name="com.sapar.orderapplication.present.view.MainEstablishmentsFragment"
-        android:label="@string/order_with_u">
+        android:id="@+id/home_fragment"
+        android:name="com.sapar.orderapplication.presentation.ui.fragments.HomeFragment"
+        android:label="@string/order_with_u"
+        tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_mainEstablishmentsFragment_to_establishmentDetailFragment"
-            app:destination="@id/establishmentDetailFragment" />
+            android:id="@+id/go_to_restaurant_details"
+            app:destination="@id/restaurant_details_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/establishmentDetailFragment"
-        android:name="com.sapar.orderapplication.present.view.EstablishmentDetailFragment"
+        android:id="@+id/restaurant_details_fragment"
+        android:name="com.sapar.orderapplication.presentation.ui.fragments.RestaurantFragment"
         android:label="{establishmentName}">
         <argument
-            android:name="establishmentName"
-            app:argType="string" />
-        <argument
-            android:name="establishmentItem"
-            app:argType="com.sapar.orderapplication.data.establishment.EstablishmentsItem" />
+            android:name="restaurant"
+            app:argType="com.sapar.orderapplication.domain.entities.RestaurantDetails" />
         <action
-            android:id="@+id/action_establishmentDetailFragment_to_basketFragment"
-            app:destination="@id/basketFragment" />
+            android:id="@+id/go_to_cart"
+            app:destination="@id/cart_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/myOrdersFragment"
-        android:name="com.sapar.orderapplication.present.view.MyOrdersFragment"
+        android:id="@+id/OrderListFragment"
+        android:name="com.sapar.orderapplication.presentation.ui.fragments.OrderListFragment"
         android:label="@string/my_order_u">
         <action
-            android:id="@+id/action_myOrdersFragment_to_myOrdersDetailFragment"
-            app:destination="@id/myOrdersDetailFragment"
+            android:id="@+id/go_to_order_details"
+            app:destination="@id/order_details_fragment"
             app:enterAnim="@anim/slide_in_from_right"
             app:popExitAnim="@anim/slide_out_to_right" />
         <action
-            android:id="@+id/action_myOrdersFragment_to_registrationEmailFragment"
+            android:id="@+id/go_to_sign_up"
+            app:destination="@id/registration_email_fragment"
             app:enterAnim="@anim/slide_in_from_right"
-            app:popExitAnim="@anim/slide_out_to_right"
-            app:destination="@id/registrationEmailFragment" />
+            app:popExitAnim="@anim/slide_out_to_right" />
     </fragment>
     <fragment
-        android:id="@+id/myOrdersDetailFragment"
-        android:name="com.sapar.orderapplication.present.view.MyOrdersDetailFragment"
+        android:id="@+id/order_details_fragment"
+        android:name="com.sapar.orderapplication.presentation.ui.fragments.OrderFragment"
         android:label="@string/order_detail">
         <argument
-            android:name="myOrderItem"
-            app:argType="com.sapar.orderapplication.data.my_orders.MyOrdersItem" />
+            android:name="order"
+            app:argType="com.sapar.orderapplication.domain.entities.Order"
+             />
     </fragment>
     <fragment
-        android:id="@+id/raqmetFragment"
-        android:name="com.sapar.orderapplication.present.view.RaqmetFragment"
+        android:id="@+id/raqmet_fragment"
+        android:name="com.sapar.orderapplication.presentation.ui.fragments.RaqmetFragment"
         android:label="@string/raqmet" />
     <fragment
-        android:id="@+id/registrationEmailFragment"
-        android:name="com.sapar.orderapplication.present.view.RegistrationEmailFragment"
+        android:id="@+id/registration_email_fragment"
+        android:name="com.sapar.orderapplication.presentation.ui.fragments.RegistrationEmailFragment"
         android:label=""
         tools:layout="@layout/fragment_registration_email">
         <action
-            android:id="@+id/action_registrationEmailFragment_to_registrationPasswordFragment"
+            android:id="@+id/go_to_enter_password"
+            app:destination="@id/registration_password_fragment"
             app:enterAnim="@anim/slide_in_from_right"
-            app:popExitAnim="@anim/slide_out_to_right"
-            app:destination="@id/registrationPasswordFragment" />
+            app:popExitAnim="@anim/slide_out_to_right" />
     </fragment>
     <fragment
-        android:id="@+id/registrationPasswordFragment"
-        android:name="com.sapar.orderapplication.present.view.RegistrationPasswordFragment"
+        android:id="@+id/registration_password_fragment"
+        android:name="com.sapar.orderapplication.presentation.ui.fragments.RegistrationPasswordFragment"
         android:label=""
-        tools:layout="@layout/fragment_registration_password" >
+        tools:layout="@layout/fragment_registration_password">
         <argument
             android:name="email"
             app:argType="string" />
         <action
-            android:id="@+id/action_registrationPasswordFragment_to_myOrdersFragment"
-            app:destination="@id/myOrdersFragment" />
+            android:id="@+id/go_to_order_list"
+            app:destination="@id/OrderListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/basketFragment"
-        android:name="com.sapar.orderapplication.present.view.BasketFragment"
+        android:id="@+id/cart_fragment"
+        android:name="com.sapar.orderapplication.presentation.ui.fragments.CartFragment"
         android:label="@string/basket"
-        tools:layout="@layout/fragment_basket" />
+        tools:layout="@layout/fragment_cart" />
 </navigation>
