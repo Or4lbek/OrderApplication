@@ -3,9 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/theor/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_expandable_list_item_1.xml" value="0.152" />
-        <entry key="..\:/Users/theor/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.4" />
-        <entry key="..\:/Users/theor/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_2.xml" value="0.6" />
         <entry key="..\:/Users/theor/FlutterProjects/OrderApplication/app/src/main/res/drawable-v24/back.xml" value="0.2345" />
         <entry key="..\:/Users/theor/FlutterProjects/OrderApplication/app/src/main/res/drawable-v24/divider.xml" value="0.2345" />
         <entry key="..\:/Users/theor/FlutterProjects/OrderApplication/app/src/main/res/drawable-v24/ic_clipboard.xml" value="0.12" />
@@ -35,6 +32,13 @@
         <entry key="..\:/Users/theor/FlutterProjects/OrderApplication/app/src/main/res/layout/item_parent_menu.xml" value="0.10885416666666667" />
         <entry key="..\:/Users/theor/FlutterProjects/OrderApplication/app/src/main/res/layout/registration_password_fragment.xml" value="0.2569046378322043" />
         <entry key="..\:/Users/theor/FlutterProjects/OrderApplication/app/src/main/res/menu/bottom_menu.xml" value="0.10885416666666667" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/fragment_my_orders_detail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_category.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/item_category_container.xml" value="0.1953125" />
+        <entry key="app/src/main/res/layout/item_establishment_record.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/item_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_parent_menu.xml" value="0.25" />
       </map>
     </option>
   </component>

@@ -57,8 +57,9 @@ dependencies {
     def nav_version = "2.3.5"
 
     implementation 'androidx.fragment:fragment-ktx:1.4.1'
-    api 'androidx.navigation:navigation-fragment-ktx:2.5.0-alpha01'
-    api 'androidx.navigation:navigation-ui-ktx:2.5.0-alpha01'
+    implementation "androidx.fragment:fragment:1.4.1"
+    api 'androidx.navigation:navigation-fragment-ktx:2.5.0-alpha02'
+    api 'androidx.navigation:navigation-ui-ktx:2.5.0-alpha02'
 
     // Kotlin
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"

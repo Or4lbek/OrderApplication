@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OrderApplication">
         <activity
-            android:name=".present.MainActivity"
+            android:name=".presentation.ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
