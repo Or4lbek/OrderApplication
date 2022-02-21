@@ -7,29 +7,33 @@ import com.sapar.orderapplication.databinding.ItemMenuBinding
 import com.sapar.orderapplication.domain.entities.Product
 import com.squareup.picasso.Picasso
 
-class ProductViewHolder(private val binding: ItemMenuBinding) :
+class ChildViewHolder(private val binding: ItemMenuBinding) :
     RecyclerView.ViewHolder(binding.root) {
-    init {
+
+    fun bind(item: Product) {
+
         binding.minusBtn.setOnClickListener {
             if (binding.counts.text.toString().toInt() > 0) {
                 binding.counts.text = binding.counts.text.toString().toInt().minus(1).toString()
+                item.count--
+                updateCount(item.count)
             }
         }
+
         binding.plusBtn.setOnClickListener {
             binding.counts.text = binding.counts.text.toString().toInt().plus(1).toString()
+            item.count++
+            updateCount(item.count)
         }
-        binding.counts.addTextChangedListener {
-            items[absoluteAdapterPosition].counter = binding.counts.text.toString().toInt()
-            listener.onChangeCount(
-                items[absoluteAdapterPosition]
-            )
-        }
+
+        binding.counts.text = item.count.toString()
+        binding.name.text = item.name
+        binding.price.text = item.price.toString()
+        Picasso.get().load(item.image).placeholder(R.drawable.back)
+            .error(R.drawable.back).into(binding.imageViewMenuMealImage)
     }
 
-    fun bind(item: Product) {
-        binding.name.text = item.name
-        binding.price.text = item.getPriceAsString()
-        Picasso.get().load(item.imageUrl).placeholder(R.drawable.back)
-            .error(R.drawable.back).into(binding.imageViewMenuMealImage)
+    private fun updateCount(count: Int){
+        binding.counts.text = count.toString()
     }
 }

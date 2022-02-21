@@ -35,7 +35,8 @@
         <entry key="app/src/main/res/layout/item_category.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_category_container.xml" value="0.1953125" />
         <entry key="app/src/main/res/layout/item_establishment_record.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/item_menu.xml" value="1.0" />
+        <entry key="app/src/main/res/layout/item_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_parent_menu.xml" value="0.25" />
       </map>
     </option>
   </component>
