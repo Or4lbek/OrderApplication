@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sapar.orderapplication.data.network.RetroInstance
 import com.sapar.orderapplication.data.network.RetroServiceInterface
+import com.sapar.orderapplication.domain.entities.Order
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -18,12 +19,6 @@ class MyOrdersViewModel : ViewModel() {
 
     fun loadMyOrdersApi() {
         viewModelScope.launch(Dispatchers.IO) {
-            val retroInstance = RetroInstance.getRetrofitInstance()
-            val retroService = retroInstance.create(RetroServiceInterface::class.java)
-            val call = withContext(Dispatchers.IO) {
-                retroService.getMyOrders()
-            }
-            liveDataMyOrdersMutable.postValue(call)
         }
     }
 }

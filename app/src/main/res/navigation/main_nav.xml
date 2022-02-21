@@ -8,7 +8,8 @@
     <fragment
         android:id="@+id/home_fragment"
         android:name="com.sapar.orderapplication.presentation.ui.fragments.HomeFragment"
-        android:label="@string/order_with_u">
+        android:label="@string/order_with_u"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/go_to_restaurant_details"
             app:destination="@id/restaurant_details_fragment" />
@@ -35,9 +36,9 @@
             app:popExitAnim="@anim/slide_out_to_right" />
         <action
             android:id="@+id/go_to_sign_up"
+            app:destination="@id/registration_email_fragment"
             app:enterAnim="@anim/slide_in_from_right"
-            app:popExitAnim="@anim/slide_out_to_right"
-            app:destination="@id/registration_email_fragment" />
+            app:popExitAnim="@anim/slide_out_to_right" />
     </fragment>
     <fragment
         android:id="@+id/order_details_fragment"
@@ -45,7 +46,8 @@
         android:label="@string/order_detail">
         <argument
             android:name="order"
-            app:argType="com.sapar.orderapplication.domain.entities.Order" />
+            app:argType="com.sapar.orderapplication.domain.entities.Order"
+             />
     </fragment>
     <fragment
         android:id="@+id/raqmet_fragment"
@@ -58,15 +60,15 @@
         tools:layout="@layout/fragment_registration_email">
         <action
             android:id="@+id/go_to_enter_password"
+            app:destination="@id/registration_password_fragment"
             app:enterAnim="@anim/slide_in_from_right"
-            app:popExitAnim="@anim/slide_out_to_right"
-            app:destination="@id/registration_password_fragment" />
+            app:popExitAnim="@anim/slide_out_to_right" />
     </fragment>
     <fragment
         android:id="@+id/registration_password_fragment"
         android:name="com.sapar.orderapplication.presentation.ui.fragments.RegistrationPasswordFragment"
         android:label=""
-        tools:layout="@layout/fragment_registration_password" >
+        tools:layout="@layout/fragment_registration_password">
         <argument
             android:name="email"
             app:argType="string" />

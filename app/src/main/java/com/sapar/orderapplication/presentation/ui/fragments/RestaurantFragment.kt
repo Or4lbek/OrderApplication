@@ -17,7 +17,7 @@ import com.sapar.orderapplication.presentation.adapters.ParentMenuAdapter
 import com.sapar.orderapplication.presentation.viewmodel.EstablishmentDetailViewModel
 
 
-class RestaurantFragment : Fragment(){
+class RestaurantFragment : Fragment() {
 
     private lateinit var menuLayoutManager: LinearLayoutManager
     private var _binding: FragmentRestaurantDetailsBinding? = null
@@ -48,21 +48,16 @@ class RestaurantFragment : Fragment(){
     }
 
     private fun setObserver() {
-//        viewModel.liveData.observe(viewLifecycleOwner) { result ->
-//            val category = result.map { categoryMeal ->
-//                Category(categoryMeal.category, false)
-//            }
-//            categoryAdapter.items = category
-//            parentMenuAdapter.items = result
-//            scrollListener()
-//        }
+        viewModel.liveData.observe(viewLifecycleOwner) {
+            categoryAdapter.submitList(it)
+            parentMenuAdapter.submitList(it)
+            scrollListener()
+        }
     }
 
     //SOLID
     private fun FragmentRestaurantDetailsBinding.initUI() {
-        categoryAdapter = CategoryAdapter {
-            onClickCategory(it)
-        }
+        categoryAdapter = CategoryAdapter()
         categoriesRv.adapter = categoryAdapter
         menuRv.adapter = parentMenuAdapter
 

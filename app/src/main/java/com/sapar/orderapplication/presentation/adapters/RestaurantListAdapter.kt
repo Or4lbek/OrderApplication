@@ -7,7 +7,7 @@ import com.sapar.orderapplication.databinding.ItemEstablishmentRecordBinding
 import com.sapar.orderapplication.domain.entities.RestaurantDetails
 import com.sapar.orderapplication.presentation.adapters.diff_util.RestaurantDiffCallback
 
-class RestaurantListAdapter() : ListAdapter<RestaurantDetails, RestaurantViewHolder>(
+class RestaurantListAdapter : ListAdapter<RestaurantDetails, RestaurantViewHolder>(
     RestaurantDiffCallback()
 ) {
 

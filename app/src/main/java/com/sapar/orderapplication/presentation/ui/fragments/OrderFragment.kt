@@ -40,7 +40,7 @@ class OrderFragment : Fragment() {
             textViewMyOrderName.text = myOrder.restaurantName
             textViewMyOrderAddress.text = myOrder.restaurantAddress
             textViewMyOrderDate.text = myOrder.orderDate.toString()
-            textViewMyOrderNumber.text = myOrder.orderProductList.size.toString()
+            textViewMyOrderNumber.text = myOrder.productList.size.toString()
             textViewMyOrderStatus.text = myOrder.status.string
         }
     }

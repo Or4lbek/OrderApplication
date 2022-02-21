@@ -2,12 +2,12 @@ package com.sapar.orderapplication.presentation.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sapar.orderapplication.common.const.PIZZA_URL
-import com.sapar.orderapplication.data.menu.CategoryMeal
-import com.sapar.orderapplication.data.menu.Meal
+import com.sapar.orderapplication.common.Constants
+import com.sapar.orderapplication.domain.entities.Category
+import com.sapar.orderapplication.domain.entities.Product
 
 class EstablishmentDetailViewModel : ViewModel() {
-    val liveData: MutableLiveData<List<CategoryMeal>> = MutableLiveData()
+    val liveData: MutableLiveData<List<Category>> = MutableLiveData()
 
     init {
         fetchAllCategories()
@@ -16,155 +16,155 @@ class EstablishmentDetailViewModel : ViewModel() {
     var totalPrice = 0
 
     private fun fetchAllCategories() {
-        val meals1 = Meal(
-            id = "1",
+        val meal1 = Product(
+            id = 1,
             name = "Маргаритта",
-            imageUrl = PIZZA_URL,
+            image = Constants.PIZZA_URL,
             price = 1700,
             description = "23456"
         )
-        val meals2 = Meal(
-            id = "2",
+        val meal2 = Product(
+            id = 2,
             name = "Маргаритта",
-            imageUrl = PIZZA_URL,
+            image = Constants.PIZZA_URL,
             price = 1700,
             description = "23456"
         )
-        val meals3 = Meal(
-            id = "3",
+        val meal3 = Product(
+            id = 3,
             name = "Маргаритта3",
-            imageUrl = PIZZA_URL,
+            image = Constants.PIZZA_URL,
             price = 1800,
             description = "23456"
         )
-        val categoryPizza = CategoryMeal(
+        val categoryPizza = Category(
             1,
-            category = "Пицца",
-            meals = listOf(
-                meals1,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3
-            )
+            name = "Пицца",
+            productList = listOf(
+                meal1,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3
+            ),
         )
-        val categoryDrinks = CategoryMeal(
+        val categoryDrinks = Category(
             2,
-            category = "Напитки",
-            meals = listOf(
-                meals1,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3
+            name = "Напитки",
+            productList = listOf(
+                meal1,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3
             )
         )
-        val categoryFruits = CategoryMeal(
+        val categoryFruits = Category(
             3,
-            category = "Фрукты",
-            meals = listOf(
-                meals1,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3
+            name = "Фрукты",
+            productList = listOf(
+                meal1,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3
             )
         )
-        val categoryFruits1 = CategoryMeal(
+        val categoryFruits1 = Category(
             3,
-            category = "Фрукты1",
-            meals = listOf(
-                meals1,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3
+            name = "Фрукты1",
+            productList = listOf(
+                meal1,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3
             )
         )
-        val categoryFruits12 = CategoryMeal(
+        val categoryFruits12 = Category(
             3,
-            category = "Фрукты12",
-            meals = listOf(
-                meals1,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3
+            name = "Фрукты12",
+            productList = listOf(
+                meal1,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3
             )
         )
-        val categoryFruits13 = CategoryMeal(
+        val categoryFruits13 = Category(
             3,
-            category = "Фрукты13",
-            meals = listOf(
-                meals1,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3
+            name = "Фрукты13",
+            productList = listOf(
+                meal1,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3
             )
         )
-        val categoryFruits14 = CategoryMeal(
+        val categoryFruits14 = Category(
             3,
-            category = "Фрукты14",
-            meals = listOf(
-                meals1,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3,
-                meals2,
-                meals3
+            name = "Фрукты14",
+            productList = listOf(
+                meal1,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3,
+                meal2,
+                meal3
             )
         )
-        val categoryFruits15 = CategoryMeal(
+        val categoryFruits15 = Category(
             3,
-            category = "Фрукты15",
-            meals = listOf(
-                meals1
+            name = "Фрукты15",
+            productList = listOf(
+                meal1
             )
         )
 

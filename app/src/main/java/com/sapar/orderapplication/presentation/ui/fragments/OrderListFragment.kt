@@ -46,21 +46,18 @@ class OrderListFragment : Fragment() {
 
     private fun initRecyclerView() {
 
-        orderListAdapter = OrderListAdapter { onNoteClick(it) }
-        binding.recyclerViewMyOrders.adapter = orderListAdapter
-
-        if (orderListAdapter.items.isEmpty()) {
-            binding.progressBarMyOrders.visibility = View.VISIBLE
+        orderListAdapter = OrderListAdapter()
+        orderListAdapter.clickListener = {
+            onNoteClick(it)
         }
+        binding.recyclerViewMyOrders.adapter = orderListAdapter
     }
 
     private fun initViewModel() {
         viewModel.liveDataMyOrders.observe(viewLifecycleOwner) {
             if (it != null) {
                 binding.progressBarMyOrders.visibility = View.GONE
-                if (orderListAdapter.items.isEmpty()) {
-                    orderListAdapter.items = it
-                }
+                orderListAdapter.submitList(it)
             } else {
                 Toast.makeText(requireContext(), "Error in getting list...", Toast.LENGTH_SHORT)
                     .show()
