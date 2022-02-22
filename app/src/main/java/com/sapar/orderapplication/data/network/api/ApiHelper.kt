@@ -4,6 +4,8 @@ import com.sapar.orderapplication.data.network.NetworkManager
 
 class ApiHelper {
     companion object {
+
+
         var instance: ApiHelper? = null
             get() {
                 if (field == null) {
