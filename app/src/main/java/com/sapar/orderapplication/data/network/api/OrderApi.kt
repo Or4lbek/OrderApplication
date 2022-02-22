@@ -9,8 +9,10 @@ import retrofit2.http.POST
 
 interface OrderApi {
 
+
+
     @GET
-    suspend fun getOrderList(): Response<List<OrderDto>>
+    suspend fun getOrderList(): List<OrderDto>
 
     @GET
     suspend fun getOrder(orderId: Int): Response<OrderDto>
